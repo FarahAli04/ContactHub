@@ -1,0 +1,37 @@
+@media (max-width: 1300px) {
+    .row.mt-4 {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .col-9, .col-3 {
+        width: 100% !important;
+    }
+    
+    aside {
+        flex-direction: row !important;
+    }
+    
+    aside > div {
+        flex: 1; 
+    }
+}
+
+@media (max-width:640px){
+    .not-btn{
+        display: none;
+    }
+
+    .set-btn{
+        display: none;
+    }
+
+    .add-btn{
+        font-size: 0px;
+    }
+    .add-btn::before{
+        content: "+ Add";
+        font-size: 14px; 
+        font-weight: 600;
+    }
+}
