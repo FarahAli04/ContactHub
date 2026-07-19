@@ -37,6 +37,10 @@ body {
     color: #7F22FE;
  }
 
+ .bg-purple-subtle{
+    background-color: #cfb7f2;
+ }
+
  .logo{
     width: 44px;
     height: 44px;
@@ -57,6 +61,14 @@ body {
     height: 40px;
  }
 
+ .sm-badge{
+    width:20px ;
+    height: 20px;
+    border: 2px solid #fff;
+ }
+ .sm-badge i{
+    font-size: 8px;
+ }
  .font14x20x600{
     font-size: 14px;
     line-height: 20px;
@@ -192,3 +204,27 @@ header .logo{
     -ms-overflow-style: none;  
     scrollbar-width: none; 
 }
+.contact-FL{
+    width: 56px;
+    height: 56px;
+}
+
+.phone-icon{
+    width: 24px;
+    height: 24px;
+}
+
+.email-icon,.address-icon{
+    width: 28px;
+    height: 28px;
+}
+
+.smbtn{
+     width: 36px;
+    height: 36px;
+}
+
+.phone-icon i,.email-icon i,.address-icon i{
+   font-size: 8px;
+}
+
