@@ -95,7 +95,7 @@ function displayContacts(){
       
         cartona += `
         <div class="col-sm-12 col-md-6 col-lg-6 mb-3">
-            <div class="p-4 rounded-4 border border-1 bg-white shadow-sm h-100">
+            <div class="p-4 rounded-4 border border-1 bg-white shadow-sm h-100 contact-card">
                 <header class="d-flex flex-column align-items-start gap-2 mb-4">
                     <div class="d-flex align-items-center justify-content-start gap-3 w-100">
                        <div class="contact-FL bg-purple rounded-4 d-flex align-items-center justify-content-center text-white position-relative">
@@ -147,10 +147,10 @@ function displayContacts(){
                         </a>
                     </div>
                     <div class="right d-flex gap-2">
-                        <button class="smbtn rounded-2 btn d-flex justify-content-center align-items-center p-2 ${current.favorite ? "bg-warning-subtle":"bg-light"}" onclick="toggleFav(${i})"><i class="${current.favorite ? 'fa-solid fa-star text-warning' : 'fa-regular fa-star text-secondary'}"></i></button>
-                        <button class="smbtn rounded-2 btn d-flex justify-content-center align-items-center p-2  ${current.emergency ? "bg-danger-subtle":"bg-light"}" onclick="toggleEmg(${i})"><i class="${current.emergency ? 'fa-solid fa-heart-pulse text-danger' : 'fa-regular fa-heart text-secondary'}"></i></button>
-                        <button class="smbtn rounded-2 btn bg-light p-2 d-flex justify-content-center align-items-center" onclick="editContact(${i})" type="button" ><i class="fa-solid fa-pen text-secondary" data-bs-toggle="modal" data-bs-target="#addContactModal" title="Edit Contact"></i></button>
-                        <button class="smbtn rounded-2 btn bg-light p-2 d-flex justify-content-center align-items-center" onclick="deleteContact(${i})" type="button"><i class="fa-solid fa-trash text-secondary"></i></button>
+                      <button class="smbtn rounded-2 btn d-flex justify-content-center align-items-center p-2 favorite-btn ${current.favorite ? "bg-warning-subtle":"bg-light"}" onclick="toggleFav(${i})"><i class="${current.favorite ? 'fa-solid fa-star text-warning' : 'fa-regular fa-star text-secondary'}"></i></button>
+<button class="smbtn rounded-2 btn d-flex justify-content-center align-items-center p-2 emergency-btn ${current.emergency ? "bg-danger-subtle":"bg-light"}" onclick="toggleEmg(${i})"><i class="${current.emergency ? 'fa-solid fa-heart-pulse text-danger' : 'fa-regular fa-heart text-secondary'}"></i></button>
+<button class="smbtn rounded-2 btn bg-light p-2 d-flex justify-content-center align-items-center edit-btn" onclick="editContact(${i})" type="button"><i class="fa-solid fa-pen text-secondary"></i></button>
+<button class="smbtn rounded-2 btn bg-light p-2 d-flex justify-content-center align-items-center delete-btn" onclick="deleteContact(${i})" type="button"><i class="fa-solid fa-trash text-secondary"></i></button>
                     </div>
                 </footer>
             </div>
@@ -159,7 +159,7 @@ function displayContacts(){
         if(current.favorite){
             favTotal++;
             Favcartona += `
-            <div class="p-3 rounded-4 bg-white d-flex justify-content-between align-items-center w-100 mb-2">
+            <div class="p-1 rounded-3 bg-white d-flex justify-content-between align-items-center w-100 mb-2 fav-item m-3 px-2">
                 <div class="d-flex align-items-center gap-3">
                     <div class="contact-FL bg-purple rounded-4 d-flex align-items-center justify-content-center text-white position-relative overflow-hidden">
  ${current.image
@@ -171,7 +171,7 @@ function displayContacts(){
                         <span class="text-secondary font11x17x400">${current.phone}</span>
                     </div>
                 </div>
-                <a class="smbtn bg-success-subtle rounded-2 d-flex align-items-center justify-content-center btn border-0 p-2" href="tel:${current.phone}">
+                <a class="smbtn bg-success-subtle rounded-2 d-flex align-items-center justify-content-center btn border-0 p-2 call-link" href="tel:${current.phone}">
                     <i class="fa-solid fa-phone text-success"></i>
                 </a>
             </div>`;
@@ -180,7 +180,7 @@ function displayContacts(){
         if(current.emergency){
             emergencyTotal++;
             Emergencycartona += `
-            <div class="p-3 rounded-4 bg-white d-flex justify-content-between align-items-center w-100 mb-2">
+            <div class="p-1 rounded-3 bg-white d-flex justify-content-between align-items-center w-100 mb-2 m-3 px-2 emergency-item">
                 <div class="d-flex align-items-center gap-3">
                    <div class="contact-FL bg-purple rounded-4 d-flex align-items-center justify-content-center text-white position-relative overflow-hidden">
  ${current.image
@@ -192,7 +192,7 @@ function displayContacts(){
                         <span class="text-secondary font11x17x400">${current.phone}</span>
                     </div>
                 </div>
-                <a class="smbtn bg-danger-subtle rounded-2 d-flex align-items-center justify-content-center btn border-0 p-2" href="tel:${current.phone}">
+                <a class="smbtn bg-danger-subtle rounded-2 d-flex align-items-center justify-content-center btn border-0 p-2 call-link" href="tel:${current.phone}">
                     <i class="fa-solid fa-phone text-danger"></i>
                 </a>
             </div>`;
@@ -359,7 +359,7 @@ function searchContact(){
 
             cards += `
             <div class="col-sm-12 col-md-6 col-lg-6 mb-3">
-            <div class="p-4 rounded-4 border border-1 bg-white shadow-sm h-100">
+            <div class="p-4 rounded-4 border border-1 bg-white shadow-sm h-100 contact-card">
                 <header class="d-flex flex-column align-items-start gap-2 mb-4">
                     <div class="d-flex align-items-center justify-content-start gap-3 w-100">
                     <div class="contact-FL bg-purple rounded-4 d-flex align-items-center justify-content-center text-white position-relative">
@@ -411,10 +411,10 @@ function searchContact(){
                         </a>
                     </div>
                     <div class="right d-flex gap-2">
-                  <button class="smbtn rounded-2 btn d-flex justify-content-center align-items-center p-2 ${current.favorite ? "bg-warning-subtle":"bg-light"}" onclick="toggleFav(${i})"><i class="${current.favorite ? 'fa-solid fa-star text-warning' : 'fa-regular fa-star text-secondary'}"></i></button>
-                        <button class="smbtn rounded-2 btn d-flex justify-content-center align-items-center p-2  ${current.emergency ? "bg-danger-subtle":"bg-light"}" onclick="toggleEmg(${i})"><i class="${current.emergency ? 'fa-solid fa-heart-pulse text-danger' : 'fa-regular fa-heart text-secondary'}"></i></button>
-                        <button class="smbtn rounded-2 btn bg-light p-2 d-flex justify-content-center align-items-center" onclick="editContact(${i})" type="button" ><i class="fa-solid fa-pen text-secondary" data-bs-toggle="modal" data-bs-target="#addContactModal" title="Edit Contact"></i></button>
-                        <button class="smbtn rounded-2 btn bg-light p-2 d-flex justify-content-center align-items-center" onclick="deleteContact(${i})" type="button"><i class="fa-solid fa-trash text-secondary"></i></button>
+                <button class="smbtn rounded-2 btn d-flex justify-content-center align-items-center p-2 favorite-btn ${current.favorite ? "bg-warning-subtle":"bg-light"}" onclick="toggleFav(${i})"><i class="${current.favorite ? 'fa-solid fa-star text-warning' : 'fa-regular fa-star text-secondary'}"></i></button>
+<button class="smbtn rounded-2 btn d-flex justify-content-center align-items-center p-2 emergency-btn ${current.emergency ? "bg-danger-subtle":"bg-light"}" onclick="toggleEmg(${i})"><i class="${current.emergency ? 'fa-solid fa-heart-pulse text-danger' : 'fa-regular fa-heart text-secondary'}"></i></button>
+<button class="smbtn rounded-2 btn bg-light p-2 d-flex justify-content-center align-items-center edit-btn" onclick="editContact(${i})" type="button"><i class="fa-solid fa-pen text-secondary"></i></button>
+<button class="smbtn rounded-2 btn bg-light p-2 d-flex justify-content-center align-items-center delete-btn" onclick="deleteContact(${i})" type="button"><i class="fa-solid fa-trash text-secondary"></i></button>
                     </div>
                 </footer>
             </div>
